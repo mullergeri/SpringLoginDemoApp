@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>New TODO</title>
+</head>
+<body style="background: lightgray">
+ <h1>Add new Task to TODO List</h1>
+    <form th:object="${newtodo}" method="post" th:action="@{/todo}" action="/todo" >
+        <label for="description">Leírás</label>
+        <input id="description" type="text" data-th-field="*{description}">
+        <p
+                style="color: red;"
+                data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}"
+        ></p>
+
+        <label for="deadline">Határidő</label>
+        <input id="deadline" type="date" data-th-field="*{deadline}">
+
+        <p
+                style="color: red;"
+                data-th-if="${#fields.hasErrors('deadline')}" data-th-errors="*{deadline}"
+        ></p>
+
+        <input type="submit" value="Mentés">
+    </form>
+
+</body>
+</html>

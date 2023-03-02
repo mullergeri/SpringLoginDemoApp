@@ -1,0 +1,14 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${PDB_HOST:localhost}:${PDB_PORT:3306}/pm2201_MG
+    username: ${PDB_USER}
+    password: ${PDB_PW}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+

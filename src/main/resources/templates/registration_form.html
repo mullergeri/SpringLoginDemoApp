@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Regisztráció</h1>
+    <form th:object="${newregistration}" method="post" th:action="@{/registration}">
+        <label for="firstName">Keresztnév</label>
+        <input id="firstName" type="text" th:field="*{firstName}">
+
+        <label for="lastName">Vezetéknév</label>
+        <input id="lastName" type="text" th:field="*{lastName}">
+
+        <label for="email">Email cím</label>
+        <input id="email" type="text" th:field="*{email}">
+
+        <label for="password">Jelszó</label>
+        <input id="password" type="password" th:field="*{password}">
+
+        <button class="button" type="submit" value="Regisztráció">Regisztráció</button>
+    </form>
+</body>
+</html>

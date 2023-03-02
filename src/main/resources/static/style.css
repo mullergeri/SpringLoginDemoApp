@@ -1,0 +1,11 @@
+.button {
+    background-color: paleturquoise;
+    width: unset;
+    height: auto;
+}
+
+button:hover {
+    background-color: khaki;
+    transition: 0.4s;
+
+}

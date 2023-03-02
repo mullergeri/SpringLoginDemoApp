@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+
+    <meta charset="UTF-8">
+    <title>TODO List</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body style="background: lightgray">
+<h1>My TODO List</h1>
+<p data-th-if="${#lists.isEmpty(TodoList)}">
+    Nincsenek felvett teendők.
+</p>
+<ul th:unless="${#lists.isEmpty(TodoList)}">
+    <li th:each="todo: ${TodoList}">
+        <b><p th:text="${todo.description}">Todo leiras</p></b>
+        <p th:text="${todo.deadline}">Todo hatarido</p>
+        <form
+                method="post"
+                th:action="@{/todo_done}"
+                action="/todo_done"
+        >
+            <input type="hidden" name="todo_id" th:value="${todo.getId()}">
+            <label th:for="${todo.getId() + 'done'}">Elkeszult</label>
+            <input
+                    type="checkbox"
+                    name="done"
+                    th:checked="${todo.getDone()}"
+                    th:id="${todo.getId() + 'done'}"
+                    onchange="submitCheck(event)"
+            >
+        </form>
+        <form
+                method="post"
+                th:action="@{/todo_delete}"
+                action="/todo_delete"
+        >
+            <input type="hidden" name="todo_id" th:value="${todo.getId()}">
+            <input type="submit" value="Töröl">
+        </form>
+    </li>
+</ul>
+<script>
+    function submitCheck(event) {
+        event.target.parentElement.submit();
+    }
+</script>
+<a th:href="@{/todo}">
+    <button class="button">
+        új teendő felvétele
+    </button>
+</a>
+<a th:href="@{/registration}">
+    <button class="button">
+        Új user regisztrálása
+    </button>
+</a>
+
+</body>
+</html>
