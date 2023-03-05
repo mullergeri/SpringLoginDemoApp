@@ -35,7 +35,7 @@
                 th:action="@{/todo_delete}"
                 action="/todo_delete"
         >
-            <input type="hidden" name="todo_id" th:value="${todo.getId()}">
+            <input type="hidden" name="todo_id" data-th-value="${todo.getId()}">
             <input type="submit" value="Töröl">
         </form>
     </li>
@@ -53,6 +53,12 @@
 <a th:href="@{/registration}">
     <button class="button">
         Új user regisztrálása
+    </button>
+</a>
+
+<a th:href="@{/logout}">
+    <button class="button">
+       Kijelentkezés
     </button>
 </a>
 

@@ -7,5 +7,5 @@
 button:hover {
     background-color: khaki;
     transition: 0.4s;
-
+    color: deeppink;
 }
